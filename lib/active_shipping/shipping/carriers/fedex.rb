@@ -169,9 +169,9 @@ module ActiveMerchant
       protected
 
       def build_location_request(destination)
-        xml_request = XmlNode.new('SearchLocationsRequest', 'xmlns' => 'http://fedex.com/ws/rate/v13') do |root_node|
+        xml_request = XmlNode.new('SearchLocationsRequest', 'xmlns' => 'http://fedex.com/ws/locs/v1') do |root_node|
           root_node << build_request_header
-          root_node << build_version_node
+          root_node << build_location_version_node
           root_node << XmlNode.new('LocationsSearchCriterion', "ADDRESS")
           root_node << XmlNode.new('Address') do |address|
             address << XmlNode.new('StreetLines', destination.address1)
@@ -183,7 +183,7 @@ module ActiveMerchant
           root_node << XmlNode.new('MultipleMatchesAction', 'RETURN_ALL')
           root_node << XmlNode.new('SortDetail') do |sort|
             sort << XmlNode.new('Criterion', 'DISTANCE')
-            sort << XmlNode.new('ORDER', 'LOWEST_TO_HIGHEST')
+            sort << XmlNode.new('Order', 'LOWEST_TO_HIGHEST')
           end
           if @options[:constraints]
             root_node << XmlNode.new('Constraints') do |constraints|
@@ -192,6 +192,15 @@ module ActiveMerchant
           end
         end
         xml_request.to_s
+      end
+
+      def build_location_version_node
+        XmlNode.new('Version') do |version_node|
+          version_node << XmlNode.new('ServiceId', 'locs')
+          version_node << XmlNode.new('Major', '1')
+          version_node << XmlNode.new('Intermediate', '0')
+          version_node << XmlNode.new('Minor', '0')
+        end
       end
 
       def build_rate_request(origin, destination, packages, options = {})
