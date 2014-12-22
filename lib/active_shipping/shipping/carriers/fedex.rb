@@ -157,8 +157,42 @@ module ActiveMerchant
         response = remove_version_prefix(xml)
         parse_tracking_response(response, options)
       end
+       def find_location(destination, options = {})
+        options = @options.update(options)
+
+        location_request = build_location_request(destination)
+        xml = commit(save_request(location_request), (options[:test] || false))
+        response = remove_version_prefix(xml)
+        response
+      end
 
       protected
+
+      def build_location_request(destination)
+        xml_request = XmlNode.new('SearchLocationsRequest', 'xmlns' => 'http://fedex.com/ws/rate/v13') do |root_node|
+          root_node << build_request_header
+          root_node << build_version_node
+          root_node << XmlNode.new('LocationsSearchCriterion', "ADDRESS")
+          root_node << XmlNode.new('Address') do |address|
+            address << XmlNode.new('StreetLines', destination.address1)
+            address << XmlNode.new('City', destination.city)
+            address << XmlNode.new('StateOrProvinceCode', destination.state)
+            address << XmlNode.new('PostalCode', destination.postal_code)
+            address << XmlNode.new('CountryCode', destination.country_code)
+          end
+          root_node << XmlNode.new('MultipleMatchesAction', 'RETURN_ALL')
+          root_node << XmlNode.new('SortDetail') do |sort|
+            sort << XmlNode.new('Criterion', 'DISTANCE')
+            sort << XmlNode.new('ORDER', 'LOWEST_TO_HIGHEST')
+          end
+          if @options[:constraints]
+            root_node << XmlNode.new('Constraints') do |constraints|
+              constraints << XmlNode.new('RequiredLocationAttributes', @options[:constraints][:required_location_attributes].join(','))
+            end
+          end
+        end
+        xml_request.to_s
+      end
 
       def build_rate_request(origin, destination, packages, options = {})
         imperial = %w(US LR MM).include?(origin.country_code(:alpha2))
