@@ -165,9 +165,48 @@ module ActiveMerchant
         response = remove_version_prefix(xml)
         parse_locations_response(response, options)
        end
-      def parse_locations_response(xml='', options={})
-        hash = Hash.from_xml(xml)
-        list = hash['SearchLocationsReply']['AddressToLocationRelationships']['DistanceAndLocationDetails']
+      def parse_locations_response(response='', options={})
+        # hash = Hash.from_xml(xml)
+        # list = hash['SearchLocationsReply']['AddressToLocationRelationships']['DistanceAndLocationDetails']
+
+        locations = []
+
+        xml = build_document(response)
+        root_node = xml.elements['SearchLocationsReply']
+
+        success = response_success?(xml)
+        message = response_message(xml)
+
+        raise ActiveMerchant::Shipping::ResponseContentError.new(StandardError.new('Invalid document'), xml) unless root_node
+
+        root_node.elements.each('AddressToLocationRelationships') do |address|
+          service_code = rated_shipment.get_text('ServiceType').to_s
+          is_saturday_delivery = rated_shipment.get_text('AppliedOptions').to_s == 'SATURDAY_DELIVERY'
+          service_type = is_saturday_delivery ? "#{service_code}_SATURDAY_DELIVERY" : service_code
+
+          transit_time = rated_shipment.get_text('TransitTime').to_s if service_code == "FEDEX_GROUND"
+          max_transit_time = rated_shipment.get_text('MaximumTransitTime').to_s if service_code == "FEDEX_GROUND"
+
+          delivery_timestamp = rated_shipment.get_text('DeliveryTimestamp').to_s
+
+          delivery_range = delivery_range_from(transit_time, max_transit_time, delivery_timestamp, options)
+
+          currency = rated_shipment.get_text('RatedShipmentDetails/ShipmentRateDetail/TotalNetCharge/Currency').to_s
+          rate_estimates << RateEstimate.new(origin, destination, @@name,
+                                             self.class.service_name_for_code(service_type),
+                                             :service_code => service_code,
+                                             :total_price => rated_shipment.get_text('RatedShipmentDetails/ShipmentRateDetail/TotalNetCharge/Amount').to_s.to_f,
+                                             :currency => currency,
+                                             :packages => packages,
+                                             :delivery_range => delivery_range)
+        end
+
+        if rate_estimates.empty?
+          success = false
+          message = "No shipping rates could be found for the destination address" if message.blank?
+        end
+
+        RateResponse.new(success, message, Hash.from_xml(response), :rates => rate_estimates, :xml => response, :request => last_request, :log_xml => options[:log_xml])
       end
 
       protected
