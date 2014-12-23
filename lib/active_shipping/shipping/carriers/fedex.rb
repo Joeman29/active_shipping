@@ -163,7 +163,11 @@ module ActiveMerchant
         location_request = build_location_request(destination)
         xml = commit(save_request(location_request), (options[:test] || false))
         response = remove_version_prefix(xml)
-        response
+        parse_locations_response(response, options)
+       end
+      def parse_locations_response(xml='', options={})
+        hash = Hash.from_xml(xml)
+        list = hash['SearchLocationsReply']['AddressToLocationRelationships']['DistanceAndLocationDetails']
       end
 
       protected
@@ -202,6 +206,7 @@ module ActiveMerchant
           version_node << XmlNode.new('Minor', '0')
         end
       end
+
 
       def build_rate_request(origin, destination, packages, options = {})
         imperial = %w(US LR MM).include?(origin.country_code(:alpha2))
