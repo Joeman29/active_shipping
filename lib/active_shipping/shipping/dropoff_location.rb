@@ -1,7 +1,7 @@
 module ActiveMerchant #:nodoc:
   module Shipping #:nodoc:
     class DropoffLocation
-      attr_accessor :id, :address, :city, :postal_code, :country_code, :state, :residential, :coordinates
+      attr_accessor :id, :address, :city, :postal_code, :country_code, :state, :residential, :coordinates, :fedex_attributes
 
       def initialize(params)
         @id = params['LocationId']
@@ -13,6 +13,7 @@ module ActiveMerchant #:nodoc:
         @state = addr['StateOrProvinceCode']
         @residential = (addr['Residential']=='true')
         @coordinates = params['GeographicCoordinates']
+        @fedex_attributes = params['Attributes']
       end
     end
   end

@@ -20,8 +20,8 @@ module ActiveMerchant #:nodoc:
       def locations
         return @locations if @locations
         @locations = @root['AddressToLocationRelationships']['DistanceAndLocationDetails'].map do |loc|
-            DropoffLocation.new(loc['LocationDetail'])
-        end.compact
+          DropoffLocation.new(loc['LocationDetail'])
+        end
       end
 
     end
