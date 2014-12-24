@@ -8,5 +8,5 @@ Gemfile.lock
 .rvmrc
 test/fixtures/live_credentials.yml
 .rbenv-version
-/idea
+/.idea
 /test/unit/carriers/fedex_account.rb
