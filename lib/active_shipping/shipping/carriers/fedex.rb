@@ -157,7 +157,7 @@ module ActiveMerchant
         response = remove_version_prefix(xml)
         parse_tracking_response(response, options)
       end
-       def find_location(destination, options = {})
+       def find_locations(destination, options = {})
         options = @options.update(options)
 
         location_request = build_location_request(destination)
