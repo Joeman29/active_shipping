@@ -9,3 +9,4 @@ Gemfile.lock
 test/fixtures/live_credentials.yml
 .rbenv-version
 /idea
+/test/unit/carriers/fedex_account.rb

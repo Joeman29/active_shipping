@@ -18,77 +18,77 @@ module ActiveMerchant
       LIVE_URL = 'https://gateway.fedex.com:443/xml'
 
       CARRIER_CODES = {
-        "fedex_ground" => "FDXG",
-        "fedex_express" => "FDXE"
+          "fedex_ground" => "FDXG",
+          "fedex_express" => "FDXE"
       }
 
       DELIVERY_ADDRESS_NODE_NAMES = %w(DestinationAddress ActualDeliveryAddress)
-      SHIPPER_ADDRESS_NODE_NAMES  = %w(ShipperAddress)
+      SHIPPER_ADDRESS_NODE_NAMES = %w(ShipperAddress)
 
       SERVICE_TYPES = {
-        "PRIORITY_OVERNIGHT" => "FedEx Priority Overnight",
-        "PRIORITY_OVERNIGHT_SATURDAY_DELIVERY" => "FedEx Priority Overnight Saturday Delivery",
-        "FEDEX_2_DAY" => "FedEx 2 Day",
-        "FEDEX_2_DAY_SATURDAY_DELIVERY" => "FedEx 2 Day Saturday Delivery",
-        "STANDARD_OVERNIGHT" => "FedEx Standard Overnight",
-        "FIRST_OVERNIGHT" => "FedEx First Overnight",
-        "FIRST_OVERNIGHT_SATURDAY_DELIVERY" => "FedEx First Overnight Saturday Delivery",
-        "FEDEX_EXPRESS_SAVER" => "FedEx Express Saver",
-        "FEDEX_1_DAY_FREIGHT" => "FedEx 1 Day Freight",
-        "FEDEX_1_DAY_FREIGHT_SATURDAY_DELIVERY" => "FedEx 1 Day Freight Saturday Delivery",
-        "FEDEX_2_DAY_FREIGHT" => "FedEx 2 Day Freight",
-        "FEDEX_2_DAY_FREIGHT_SATURDAY_DELIVERY" => "FedEx 2 Day Freight Saturday Delivery",
-        "FEDEX_3_DAY_FREIGHT" => "FedEx 3 Day Freight",
-        "FEDEX_3_DAY_FREIGHT_SATURDAY_DELIVERY" => "FedEx 3 Day Freight Saturday Delivery",
-        "INTERNATIONAL_PRIORITY" => "FedEx International Priority",
-        "INTERNATIONAL_PRIORITY_SATURDAY_DELIVERY" => "FedEx International Priority Saturday Delivery",
-        "INTERNATIONAL_ECONOMY" => "FedEx International Economy",
-        "INTERNATIONAL_FIRST" => "FedEx International First",
-        "INTERNATIONAL_PRIORITY_FREIGHT" => "FedEx International Priority Freight",
-        "INTERNATIONAL_ECONOMY_FREIGHT" => "FedEx International Economy Freight",
-        "GROUND_HOME_DELIVERY" => "FedEx Ground Home Delivery",
-        "FEDEX_GROUND" => "FedEx Ground",
-        "INTERNATIONAL_GROUND" => "FedEx International Ground",
-        "SMART_POST" => "FedEx SmartPost",
-        "FEDEX_FREIGHT_PRIORITY" => "FedEx Freight Priority",
-        "FEDEX_FREIGHT_ECONOMY" => "FedEx Freight Economy"
+          "PRIORITY_OVERNIGHT" => "FedEx Priority Overnight",
+          "PRIORITY_OVERNIGHT_SATURDAY_DELIVERY" => "FedEx Priority Overnight Saturday Delivery",
+          "FEDEX_2_DAY" => "FedEx 2 Day",
+          "FEDEX_2_DAY_SATURDAY_DELIVERY" => "FedEx 2 Day Saturday Delivery",
+          "STANDARD_OVERNIGHT" => "FedEx Standard Overnight",
+          "FIRST_OVERNIGHT" => "FedEx First Overnight",
+          "FIRST_OVERNIGHT_SATURDAY_DELIVERY" => "FedEx First Overnight Saturday Delivery",
+          "FEDEX_EXPRESS_SAVER" => "FedEx Express Saver",
+          "FEDEX_1_DAY_FREIGHT" => "FedEx 1 Day Freight",
+          "FEDEX_1_DAY_FREIGHT_SATURDAY_DELIVERY" => "FedEx 1 Day Freight Saturday Delivery",
+          "FEDEX_2_DAY_FREIGHT" => "FedEx 2 Day Freight",
+          "FEDEX_2_DAY_FREIGHT_SATURDAY_DELIVERY" => "FedEx 2 Day Freight Saturday Delivery",
+          "FEDEX_3_DAY_FREIGHT" => "FedEx 3 Day Freight",
+          "FEDEX_3_DAY_FREIGHT_SATURDAY_DELIVERY" => "FedEx 3 Day Freight Saturday Delivery",
+          "INTERNATIONAL_PRIORITY" => "FedEx International Priority",
+          "INTERNATIONAL_PRIORITY_SATURDAY_DELIVERY" => "FedEx International Priority Saturday Delivery",
+          "INTERNATIONAL_ECONOMY" => "FedEx International Economy",
+          "INTERNATIONAL_FIRST" => "FedEx International First",
+          "INTERNATIONAL_PRIORITY_FREIGHT" => "FedEx International Priority Freight",
+          "INTERNATIONAL_ECONOMY_FREIGHT" => "FedEx International Economy Freight",
+          "GROUND_HOME_DELIVERY" => "FedEx Ground Home Delivery",
+          "FEDEX_GROUND" => "FedEx Ground",
+          "INTERNATIONAL_GROUND" => "FedEx International Ground",
+          "SMART_POST" => "FedEx SmartPost",
+          "FEDEX_FREIGHT_PRIORITY" => "FedEx Freight Priority",
+          "FEDEX_FREIGHT_ECONOMY" => "FedEx Freight Economy"
       }
 
       PACKAGE_TYPES = {
-        "fedex_envelope" => "FEDEX_ENVELOPE",
-        "fedex_pak" => "FEDEX_PAK",
-        "fedex_box" => "FEDEX_BOX",
-        "fedex_tube" => "FEDEX_TUBE",
-        "fedex_10_kg_box" => "FEDEX_10KG_BOX",
-        "fedex_25_kg_box" => "FEDEX_25KG_BOX",
-        "your_packaging" => "YOUR_PACKAGING"
+          "fedex_envelope" => "FEDEX_ENVELOPE",
+          "fedex_pak" => "FEDEX_PAK",
+          "fedex_box" => "FEDEX_BOX",
+          "fedex_tube" => "FEDEX_TUBE",
+          "fedex_10_kg_box" => "FEDEX_10KG_BOX",
+          "fedex_25_kg_box" => "FEDEX_25KG_BOX",
+          "your_packaging" => "YOUR_PACKAGING"
       }
 
       DROPOFF_TYPES = {
-        'regular_pickup' => 'REGULAR_PICKUP',
-        'request_courier' => 'REQUEST_COURIER',
-        'dropbox' => 'DROP_BOX',
-        'business_service_center' => 'BUSINESS_SERVICE_CENTER',
-        'station' => 'STATION'
+          'regular_pickup' => 'REGULAR_PICKUP',
+          'request_courier' => 'REQUEST_COURIER',
+          'dropbox' => 'DROP_BOX',
+          'business_service_center' => 'BUSINESS_SERVICE_CENTER',
+          'station' => 'STATION'
       }
 
       PAYMENT_TYPES = {
-        'sender' => 'SENDER',
-        'recipient' => 'RECIPIENT',
-        'third_party' => 'THIRDPARTY',
-        'collect' => 'COLLECT'
+          'sender' => 'SENDER',
+          'recipient' => 'RECIPIENT',
+          'third_party' => 'THIRDPARTY',
+          'collect' => 'COLLECT'
       }
 
       PACKAGE_IDENTIFIER_TYPES = {
-        'tracking_number' => 'TRACKING_NUMBER_OR_DOORTAG',
-        'door_tag' => 'TRACKING_NUMBER_OR_DOORTAG',
-        'rma' => 'RMA',
-        'ground_shipment_id' => 'GROUND_SHIPMENT_ID',
-        'ground_invoice_number' => 'GROUND_INVOICE_NUMBER',
-        'ground_customer_reference' => 'GROUND_CUSTOMER_REFERENCE',
-        'ground_po' => 'GROUND_PO',
-        'express_reference' => 'EXPRESS_REFERENCE',
-        'express_mps_master' => 'EXPRESS_MPS_MASTER'
+          'tracking_number' => 'TRACKING_NUMBER_OR_DOORTAG',
+          'door_tag' => 'TRACKING_NUMBER_OR_DOORTAG',
+          'rma' => 'RMA',
+          'ground_shipment_id' => 'GROUND_SHIPMENT_ID',
+          'ground_invoice_number' => 'GROUND_INVOICE_NUMBER',
+          'ground_customer_reference' => 'GROUND_CUSTOMER_REFERENCE',
+          'ground_po' => 'GROUND_PO',
+          'express_reference' => 'EXPRESS_REFERENCE',
+          'express_mps_master' => 'EXPRESS_MPS_MASTER'
       }
 
       TRANSIT_TIMES = %w(UNKNOWN ONE_DAY TWO_DAYS THREE_DAYS FOUR_DAYS FIVE_DAYS SIX_DAYS SEVEN_DAYS EIGHT_DAYS NINE_DAYS TEN_DAYS ELEVEN_DAYS TWELVE_DAYS THIRTEEN_DAYS FOURTEEN_DAYS FIFTEEN_DAYS SIXTEEN_DAYS SEVENTEEN_DAYS EIGHTEEN_DAYS)
@@ -96,37 +96,37 @@ module ActiveMerchant
       # FedEx tracking codes as described in the FedEx Tracking Service WSDL Guide
       # All delays also have been marked as exceptions
       TRACKING_STATUS_CODES = HashWithIndifferentAccess.new(
-        'AA' => :at_airport,
-        'AD' => :at_delivery,
-        'AF' => :at_fedex_facility,
-        'AR' => :at_fedex_facility,
-        'AP' => :at_pickup,
-        'CA' => :canceled,
-        'CH' => :location_changed,
-        'DE' => :exception,
-        'DL' => :delivered,
-        'DP' => :departed_fedex_location,
-        'DR' => :vehicle_furnished_not_used,
-        'DS' => :vehicle_dispatched,
-        'DY' => :exception,
-        'EA' => :exception,
-        'ED' => :enroute_to_delivery,
-        'EO' => :enroute_to_origin_airport,
-        'EP' => :enroute_to_pickup,
-        'FD' => :at_fedex_destination,
-        'HL' => :held_at_location,
-        'IT' => :in_transit,
-        'LO' => :left_origin,
-        'OC' => :order_created,
-        'OD' => :out_for_delivery,
-        'PF' => :plane_in_flight,
-        'PL' => :plane_landed,
-        'PU' => :picked_up,
-        'RS' => :return_to_shipper,
-        'SE' => :exception,
-        'SF' => :at_sort_facility,
-        'SP' => :split_status,
-        'TR' => :transfer
+          'AA' => :at_airport,
+          'AD' => :at_delivery,
+          'AF' => :at_fedex_facility,
+          'AR' => :at_fedex_facility,
+          'AP' => :at_pickup,
+          'CA' => :canceled,
+          'CH' => :location_changed,
+          'DE' => :exception,
+          'DL' => :delivered,
+          'DP' => :departed_fedex_location,
+          'DR' => :vehicle_furnished_not_used,
+          'DS' => :vehicle_dispatched,
+          'DY' => :exception,
+          'EA' => :exception,
+          'ED' => :enroute_to_delivery,
+          'EO' => :enroute_to_origin_airport,
+          'EP' => :enroute_to_pickup,
+          'FD' => :at_fedex_destination,
+          'HL' => :held_at_location,
+          'IT' => :in_transit,
+          'LO' => :left_origin,
+          'OC' => :order_created,
+          'OD' => :out_for_delivery,
+          'PF' => :plane_in_flight,
+          'PL' => :plane_landed,
+          'PU' => :picked_up,
+          'RS' => :return_to_shipper,
+          'SE' => :exception,
+          'SF' => :at_sort_facility,
+          'SP' => :split_status,
+          'TR' => :transfer
       )
 
       def self.service_name_for_code(service_code)
@@ -157,20 +157,275 @@ module ActiveMerchant
         response = remove_version_prefix(xml)
         parse_tracking_response(response, options)
       end
-       def find_locations(destination, options = {})
+
+      def find_locations(destination, options = {})
         options = @options.update(options)
 
         location_request = build_location_request(destination)
         xml = commit(save_request(location_request), (options[:test] || false))
         response = remove_version_prefix(xml)
         parse_locations_response(response, options)
-       end
+      end
+
       def parse_locations_response(response='', options={})
         hash = Hash.from_xml(response)
         DropoffLocationsResponse.new(true, nil, hash)
       end
 
+      def create_shipment(origin, destination, packages, options = {})
+        @shipping_options = options[:shipping_options] || {}
+        @payment_options = options[:payment_options] || {}
+        @mps = @shipping_options[:mps] || {}
+        shipment_request = build_shipment_request(origin, destination, packages)
+        xml = commit(save_request(shipment_request), (options[:test] || false))
+        response = remove_version_prefix(xml)
+      end
+
       protected
+
+      def build_shipment_request(origin, destination, packages)
+        xml_request = XmlNode.new('ProcessShipmentRequest', 'xmlns' => 'http://fedex.com/ws/ship/v13') do |root_node|
+          root_node << build_request_header
+          root_node << build_version_node('ship')
+          root_node << XmlNode.new('RequestedShipment') do |shipment|
+            shipment << XmlNode.new('ShipTimestamp', @shipping_options[:ship_timestamp] ||= Time.now.utc.iso8601(2))
+            shipment << XmlNode.new('DropoffType', @shipping_options[:drop_off_type] ||= "REGULAR_PICKUP")
+            shipment << XmlNode.new('ServiceType', @shipping_options[:service_type])
+            shipment << XmlNode.new('PackagingType', @shipping_options[:packaging_type] ||= "YOUR_PACKAGING")
+            add_total_weight(shipment) if @mps.has_key?(:total_weight)
+            # shipment << build_location_node('Shipper', (@shipping_options[:shipper] || origin))
+            # shipment << build_location_node('Recipient', destination)
+            # if @shipping_options[:shipper] and @shipping_options[:shipper] != origin
+            #   shipment << build_location_node('Origin', origin)
+            # end
+            add_shipper(shipment, origin)
+            add_recipient(shipment, destination)
+            add_shipping_charges_payment(shipment, origin)
+            shipment << XmlNode.new('LabelSpecification') do |label|
+              label << XmlNode.new('LabelFormatType', "COMMON2D")
+              label << XmlNode.new('ImageType', "PDF")
+              label << XmlNode.new('LabelStockType', "PAPER_LETTER")
+            end
+            add_special_services(shipment) if @shipping_options[:return_reason]
+            add_hold_at_location(xml) if @shipping_options[:hold_at_location]
+            # add_customs_clearance(xml) if @customs_clearance_detail
+            # add_custom_components(xml)
+            shipment << XmlNode.new('RateRequestTypes', "ACCOUNT")
+            imperial = %w(US LR MM).include?(origin.country_code(:alpha2))
+            shipment << build_rate_request_types_node
+            shipment << XmlNode.new('PackageCount', packages.size)
+            shipment << build_packages_nodes(packages, imperial)
+            # add_packages(shipment, packages)
+          end
+        end
+        xml_request.to_s
+      end
+
+      def add_total_weight(shipment)
+        if @mps.has_key?(:total_weight)
+          shipment << XmlNode.new('TotalWeight') do |total_weight|
+            total_weight << XmlNode.new('Units', @shipping_options[:mps][:total_weight][:units])
+            total_weight << XmlNode.new('Value', @shipping_options[:mps][:total_weight][:value])
+          end
+        end
+      end
+
+      def add_shipper(shipment, origin)
+        shipment << XmlNode.new('Shipper') do |shipper|
+          shipper << XmlNode.new('Contact') do |contact|
+            contact << XmlNode.new('PersonName', origin.name)
+            contact << XmlNode.new('CompanyName', origin.company_name)
+            contact << XmlNode.new('PhoneNumber', origin.phone)
+          end
+          shipper << XmlNode.new('Address') do |address|
+            [:address1, :address2, :address3].each do |field|
+              line = origin.send(field)
+              address << XmlNode.new('StreetLines', line) if line
+            end
+            address << XmlNode.new('City', origin.city)
+            address << XmlNode.new('StateOrProvinceCode', origin.province)
+            address << XmlNode.new('PostalCode', origin.postal_code)
+            address << XmlNode.new('CountryCode', origin.country_code)
+            address << XmlNode.new('CountryName', origin.country)
+          end
+        end
+      end
+
+      def add_recipient(shipment, destination)
+        shipment << XmlNode.new('Recipient') do |recipient|
+          recipient << XmlNode.new('Contact') do |contact|
+            contact << XmlNode.new('PersonName', destination.name)
+            contact << XmlNode.new('CompanyName', destination.company_name)
+            contact << XmlNode.new('PhoneNumber', destination.phone)
+          end
+          recipient << XmlNode.new('Address') do |address|
+            [:address1, :address2, :address3].each do |field|
+              line = destination.send(field)
+              address << XmlNode.new('StreetLines', line) if line
+            end
+            address << XmlNode.new('City', destination.city)
+            address << XmlNode.new('StateOrProvinceCode', destination.province)
+            address << XmlNode.new('PostalCode', destination.postal_code)
+            address << XmlNode.new('CountryCode', destination.country_code)
+            address << XmlNode.new('CountryName', destination.country)
+            address << XmlNode.new('Residential', destination.residential?)
+          end
+        end
+      end
+
+      def add_shipping_charges_payment(shipment, origin)
+        shipment << XmlNode.new('ShippingChargesPayment') do |payment|
+          payment << XmlNode.new('PaymentType', @payment_options[:type] || 'SENDER')
+          payment << XmlNode.new('Payor') do |payor|
+            payor << XmlNode.new('ResponsibleParty') do |rp|
+              rp << XmlNode.new('AccountNumber', @payment_options[:account_number] || @options[:account])
+              rp << XmlNode.new('Contact') do |contact|
+                contact << XmlNode.new('PersonName', @payment_options[:name] || origin.name)
+                contact << XmlNode.new('CompanyName', @payment_options[:company] || origin.company_name)
+                contact << XmlNode.new('PhoneNumber', @payment_options[:phone] || origin.phone)
+              end
+            end
+          end
+        end
+      end
+
+      def add_special_services(xml)
+        xml.SpecialServicesRequested {
+          xml.SpecialServiceTypes "RETURN_SHIPMENT"
+          xml.ReturnShipmentDetail {
+            xml.ReturnType "PRINT_RETURN_LABEL"
+            xml.Rma {
+              xml.Reason "#{@shipping_options[:return_reason]}"
+            }
+          }
+        }
+      end
+
+      def add_hold_at_location(shipment)
+        shipment << XmlNode.new('SpecialServicesRequested') do |ss|
+          ss << XmlNode.new('SpecialServiceTypes', 'HOLD_AT_LOCATION')
+          ss << XmlNode.new('HoldAtLocationDetail') do |hal|
+            hal << XmlNode.new('PhoneNumber', @shipping_options[:hold_at_location][:phone_number])
+            hal << XmlNode.new('LocationContactAndAddress') do |location|
+              if @shipping_options[:hold_at_location][:contact]
+                location << XmlNode.new('Contact') do |contact|
+                  # contact << XmlNode.new('PersonName', @shipping_options[:hold_at_location][:contact][:phone_number])
+                  # contact << XmlNode.new('CompanyName', @shipping_options[:hold_at_location][:contact][:company_name])
+                  contact << XmlNode.new('PhoneNumber', @shipping_options[:hold_at_location][:contact][:phone_number])
+                end
+              end
+              location << XmlNode.new('Address') do |address|
+                [:address1, :address2, :address3].each do |field|
+                  line = @shipping_options[:hold_at_location][:address][field]
+                  address << XmlNode.new('StreetLines', line) if line
+                end
+                address << XmlNode.new('City', @shipping_options[:hold_at_location][:address][:city])
+                address << XmlNode.new('StateOrProvinceCode', @shipping_options[:hold_at_location][:address][:state])
+                address << XmlNode.new('PostalCode', @shipping_options[:hold_at_location][:address][:postal_code])
+                address << XmlNode.new('CountryCode', @shipping_options[:hold_at_location][:address][:country_code])
+                address << XmlNode.new('Residential', @shipping_options[:hold_at_location][:address][:country_name])
+              end
+            end
+
+          end
+        end
+      end
+
+      # def add_packages(shipment, packages)
+      #   add_master_tracking_id(shipment) if @mps.has_key? :master_tracking_id
+      #   package_count = packages.size
+      #   if @mps.has_key? :package_count
+      #
+      #     shipment << XmlNode.new('PackageCount', @mps[:package_count])
+      #   else
+      #     shipment << XmlNode.new('PackageCount', package_count)
+      #   end
+      #   packages.each do |package|
+      #     shipment << XmlNode.new('RequestedPackageLineItems') do |pkg|
+      #       if @mps.has_key? :sequence_number
+      #         pkg << XmlNode.new('SequenceNumber', @mps[:sequence_number])
+      #       else
+      #         pkg << XmlNode.new('GroupPackageCount', 1)
+      #       end
+      #       if package.value
+      #         pkg << XmlNode.new('InsuredValue') do |val|
+      #           val << XmlNode.new('Currency', package.currency)
+      #           val << XmlNode.new('Amount', package.value)
+      #         end
+      #       end
+      #       pkg << XmlNode.new('Weight') do | weight |
+      #         weight << XmlNode.new('Units', 'LB')
+      #         weight << XmlNode.new('Value', package.pounds)
+      #       end
+      #       if package.inches
+      #         pkg << XmlNode.new('Dimensions') do |dimensions|
+      #           dimensions << XmlNode.new('Length', package.inches[0])
+      #           dimensions << XmlNode.new('Width', package.inches[1])
+      #           dimensions << XmlNode.new('Height', package.inches[2])
+      #           dimensions << XmlNode.new('Units', 'IN')
+      #         end
+      #       end
+      #     end
+      #   end
+      #
+      #     #   add_customer_references(xml, package)
+      #     #   if package[:special_services_requested] && package[:special_services_requested][:special_service_types]
+      #     #     xml.SpecialServicesRequested {
+      #     #       if package[:special_services_requested][:special_service_types].is_a? Array
+      #     #         package[:special_services_requested][:special_service_types].each do |type|
+      #     #           xml.SpecialServiceTypes type
+      #     #         end
+      #     #       else
+      #     #         xml.SpecialServiceTypes package[:special_services_requested][:special_service_types]
+      #     #       end
+      #     #       # Handle COD Options
+      #     #       if package[:special_services_requested][:cod_detail]
+      #     #         xml.CodDetail {
+      #     #           xml.CodCollectionAmount {
+      #     #             xml.Currency package[:special_services_requested][:cod_detail][:cod_collection_amount][:currency]
+      #     #             xml.Amount package[:special_services_requested][:cod_detail][:cod_collection_amount][:amount]
+      #     #           }
+      #     #           if package[:special_services_requested][:cod_detail][:add_transportation_charges]
+      #     #             xml.AddTransportationCharges package[:special_services_requested][:cod_detail][:add_transportation_charges]
+      #     #           end
+      #     #           xml.CollectionType package[:special_services_requested][:cod_detail][:collection_type]
+      #     #           xml.CodRecipient {
+      #     #             add_shipper(xml)
+      #     #           }
+      #     #           if package[:special_services_requested][:cod_detail][:reference_indicator]
+      #     #             xml.ReferenceIndicator package[:special_services_requested][:cod_detail][:reference_indicator]
+      #     #           end
+      #     #         }
+      #     #       end
+      #     #       # DangerousGoodsDetail goes here
+      #     #       if package[:special_services_requested][:dry_ice_weight]
+      #     #         xml.DryIceWeight {
+      #     #           xml.Units package[:special_services_requested][:dry_ice_weight][:units]
+      #     #           xml.Value package[:special_services_requested][:dry_ice_weight][:value]
+      #     #         }
+      #     #       end
+      #     #       if package[:special_services_requested][:signature_option_detail]
+      #     #         xml.SignatureOptionDetail {
+      #     #           xml.OptionType package[:special_services_requested][:signature_option_detail][:signature_option_type]
+      #     #         }
+      #     #       end
+      #     #       if package[:special_services_requested][:priority_alert_detail]
+      #     #         xml.PriorityAlertDetail package[:special_services_requested][:priority_alert_detail]
+      #     #       end
+      #     #     }
+      #     #   end
+      #     #   }
+      #     # end
+      #   end
+
+      def add_master_tracking_id(xml)
+        if @mps.has_key? :master_tracking_id
+          xml.MasterTrackingId {
+            xml.TrackingIdType @mps[:master_tracking_id][:tracking_id_type]
+            xml.TrackingNumber @mps[:master_tracking_id][:tracking_number]
+          }
+        end
+      end
 
       def build_location_request(destination)
         xml_request = XmlNode.new('SearchLocationsRequest', 'xmlns' => 'http://fedex.com/ws/locs/v1') do |root_node|
@@ -311,9 +566,9 @@ module ActiveMerchant
         end
       end
 
-      def build_version_node
+      def build_version_node(service_id='crs')
         XmlNode.new('Version') do |version_node|
-          version_node << XmlNode.new('ServiceId', 'crs')
+          version_node << XmlNode.new('ServiceId', service_id)
           version_node << XmlNode.new('Major', '13')
           version_node << XmlNode.new('Intermediate', '0')
           version_node << XmlNode.new('Minor', '0')
@@ -438,7 +693,7 @@ module ActiveMerchant
 
         # if there's no delivery timestamp but we do have a transit time, use it
         if delivery_timestamp.blank? && transit_time.present?
-          transit_range  = parse_transit_times([transit_time, max_transit_time.presence || transit_time])
+          transit_range = parse_transit_times([transit_time, max_transit_time.presence || transit_time])
           delivery_range = transit_range.map { |days| business_days_from(ship_date(options[:turn_around_time]), days) }
         end
 
@@ -447,7 +702,7 @@ module ActiveMerchant
 
       def business_days_from(date, days)
         future_date = date
-        count       = 0
+        count = 0
 
         while count < days
           future_date += 1.day
@@ -487,9 +742,9 @@ module ActiveMerchant
 
           if origin_node
             origin = Location.new(
-                  :country =>     origin_node.get_text('CountryCode').to_s,
-                  :province =>    origin_node.get_text('StateOrProvinceCode').to_s,
-                  :city =>        origin_node.get_text('City').to_s
+                :country => origin_node.get_text('CountryCode').to_s,
+                :province => origin_node.get_text('StateOrProvinceCode').to_s,
+                :city => origin_node.get_text('City').to_s
             )
           end
 
@@ -501,18 +756,18 @@ module ActiveMerchant
           scheduled_delivery_time = extract_timestamp(tracking_details, 'EstimatedDeliveryTimestamp')
 
           tracking_details.elements.each('Events') do |event|
-            address  = event.elements['Address']
+            address = event.elements['Address']
 
-            city     = address.get_text('City').to_s
-            state    = address.get_text('StateOrProvinceCode').to_s
+            city = address.get_text('City').to_s
+            state = address.get_text('StateOrProvinceCode').to_s
             zip_code = address.get_text('PostalCode').to_s
-            country  = address.get_text('CountryCode').to_s
+            country = address.get_text('CountryCode').to_s
             next if country.blank?
 
             location = Location.new(:city => city, :state => state, :postal_code => zip_code, :country => country)
             description = event.get_text('EventDescription').to_s
 
-            time          = Time.parse("#{event.get_text('Timestamp').to_s}")
+            time = Time.parse("#{event.get_text('Timestamp').to_s}")
             zoneless_time = time.utc
 
             shipment_events << ShipmentEvent.new(description, zoneless_time, location)
@@ -589,18 +844,18 @@ module ActiveMerchant
         end
 
         args = if node && node.elements['CountryCode']
-          {
-            :country => node.get_text('CountryCode').to_s,
-            :province => node.get_text('StateOrProvinceCode').to_s,
-            :city => node.get_text('City').to_s
-          }
-        else
-          {
-            :country => ActiveMerchant::Country.new(:alpha2 => 'ZZ', :name => 'Unknown or Invalid Territory', :alpha3 => 'ZZZ', :numeric => '999'),
-            :province => 'unknown',
-            :city => 'unknown'
-          }
-        end
+                 {
+                     :country => node.get_text('CountryCode').to_s,
+                     :province => node.get_text('StateOrProvinceCode').to_s,
+                     :city => node.get_text('City').to_s
+                 }
+               else
+                 {
+                     :country => ActiveMerchant::Country.new(:alpha2 => 'ZZ', :name => 'Unknown or Invalid Territory', :alpha3 => 'ZZZ', :numeric => '999'),
+                     :province => 'unknown',
+                     :city => 'unknown'
+                 }
+               end
 
         Location.new(args)
       end

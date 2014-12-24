@@ -411,4 +411,6 @@ class FedExTest < MiniTest::Unit::TestCase
     assert_instance_of ActiveMerchant::Shipping::DropoffLocationsResponse, parsed
     assert_equal '520 Westfield Ave', parsed.locations.first.address
   end
+
+
 end
