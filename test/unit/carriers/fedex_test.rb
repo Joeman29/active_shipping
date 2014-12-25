@@ -411,6 +411,12 @@ class FedExTest < MiniTest::Unit::TestCase
     assert_instance_of ActiveMerchant::Shipping::DropoffLocationsResponse, parsed
     assert_equal '520 Westfield Ave', parsed.locations.first.address
   end
+  def test_parses_shipment_response
+    mock_response = xml_fixture('fedex/shipment_response')
+    parsed = @carrier.parse_shipment_response(mock_response, {})
+    assert_instance_of ActiveMerchant::Shipping::FedexShippingResponse, parsed
+    assert_equal '794626657851', parsed.tracking_number
+  end
 
 
 end

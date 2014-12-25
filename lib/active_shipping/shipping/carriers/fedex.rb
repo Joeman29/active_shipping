@@ -179,6 +179,23 @@ module ActiveMerchant
         shipment_request = build_shipment_request(origin, destination, packages)
         xml = commit(save_request(shipment_request), (options[:test] || false))
         response = remove_version_prefix(xml)
+        parse_shipment_response(response, options)
+      end
+
+      def parse_shipment_response(response, options)
+        # rate_estimates = []
+
+        xml = build_document(response)
+        root_node = xml.elements['ProcessShipmentReply']
+        raise ActiveMerchant::Shipping::ResponseContentError.new(StandardError.new('Invalid document'), xml) unless root_node
+        success = response_success?(xml)
+        message = response_message(xml)
+        hash = Hash.from_xml(response)
+        options.merge!(
+            tracking_number: hash['ProcessShipmentReply']['CompletedShipmentDetail']['CompletedPackageDetails']['TrackingIds']['TrackingNumber'],
+            label: hash['ProcessShipmentReply']['CompletedShipmentDetail']['CompletedPackageDetails']['Label']['Parts']['Image']
+        )
+        FedexShippingResponse.new(success, message, hash, options)
       end
 
       protected
@@ -881,6 +898,14 @@ module ActiveMerchant
         REXML::Document.new(xml)
       rescue REXML::ParseException => e
         raise ActiveMerchant::Shipping::ResponseContentError.new(e, xml)
+      end
+    end
+
+    class FedexShippingResponse < ShippingResponse
+      attr_reader :label
+      def initialize(success, message, params = {}, options = {})
+        super
+        @label = options[:label]
       end
     end
   end
