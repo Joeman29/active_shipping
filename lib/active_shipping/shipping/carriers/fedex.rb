@@ -201,19 +201,22 @@ module ActiveMerchant
             add_shipper(shipment, origin)
             add_recipient(shipment, destination)
             add_shipping_charges_payment(shipment, origin)
+
+            add_special_services(shipment) if @shipping_options[:return_reason]
+            add_hold_at_location(shipment) if @shipping_options[:hold_at_location]
             shipment << XmlNode.new('LabelSpecification') do |label|
               label << XmlNode.new('LabelFormatType', "COMMON2D")
               label << XmlNode.new('ImageType', "PDF")
               label << XmlNode.new('LabelStockType', "PAPER_LETTER")
             end
-            add_special_services(shipment) if @shipping_options[:return_reason]
-            add_hold_at_location(xml) if @shipping_options[:hold_at_location]
-            # add_customs_clearance(xml) if @customs_clearance_detail
-            # add_custom_components(xml)
-            shipment << XmlNode.new('RateRequestTypes', "ACCOUNT")
-            imperial = %w(US LR MM).include?(origin.country_code(:alpha2))
             shipment << build_rate_request_types_node
             shipment << XmlNode.new('PackageCount', packages.size)
+            # add_customs_clearance(xml) if @customs_clearance_detail
+            # add_custom_components(xml)
+
+            imperial = %w(US LR MM).include?(origin.country_code(:alpha2))
+
+
             shipment << build_packages_nodes(packages, imperial)
             # add_packages(shipment, packages)
           end
@@ -323,7 +326,7 @@ module ActiveMerchant
                 address << XmlNode.new('StateOrProvinceCode', @shipping_options[:hold_at_location][:address][:state])
                 address << XmlNode.new('PostalCode', @shipping_options[:hold_at_location][:address][:postal_code])
                 address << XmlNode.new('CountryCode', @shipping_options[:hold_at_location][:address][:country_code])
-                address << XmlNode.new('Residential', @shipping_options[:hold_at_location][:address][:country_name])
+                address << XmlNode.new('Residential', 'false')
               end
             end
 

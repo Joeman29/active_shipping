@@ -29,13 +29,18 @@ class FedExTest < MiniTest::Unit::TestCase
         shipping_options: {
             service_type: 'FEDEX_GROUND',
             hold_at_location: {
-                      :hold_at_location => {
-            phone_number: info[:contact][:phone_number].gsub(/\(/, '').gsub(') ', '-'),
-            address: address_fields(info[:address]),
-            contact: {
-                phone_number: info[:contact][:phone_number].gsub(/\(/, '').gsub(') ', '-')
-            }
-        }
+                phone_number: '(973) 376-3966'.gsub(/\(/, '').gsub(') ', '-'),
+                address: {
+                    address1: '55 US Hwy 22',
+                    city: 'Springfield',
+                    state: 'NJ',
+                    postal_code: '07081',
+                    country_code: 'US',
+                    country_name: 'USA'
+                },
+                contact: {
+                    phone_number: '(973) 376-3966'.gsub(/\(/, '').gsub(') ', '-')
+                }
             }
         },
         # payment_options:{
