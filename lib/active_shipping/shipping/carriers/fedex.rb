@@ -322,27 +322,28 @@ module ActiveMerchant
       end
 
       def add_hold_at_location(shipment)
+        location = @shipping_options[:hold_at_location]
         shipment << XmlNode.new('SpecialServicesRequested') do |ss|
           ss << XmlNode.new('SpecialServiceTypes', 'HOLD_AT_LOCATION')
           ss << XmlNode.new('HoldAtLocationDetail') do |hal|
-            hal << XmlNode.new('PhoneNumber', @shipping_options[:hold_at_location][:phone_number])
+            hal << XmlNode.new('PhoneNumber', location.phone_number.gsub(/\(/, '').gsub(') ', '-'))
             hal << XmlNode.new('LocationContactAndAddress') do |location|
-              if @shipping_options[:hold_at_location][:contact]
+              # if @shipping_options[:hold_at_location][:contact]
                 location << XmlNode.new('Contact') do |contact|
                   # contact << XmlNode.new('PersonName', @shipping_options[:hold_at_location][:contact][:phone_number])
                   # contact << XmlNode.new('CompanyName', @shipping_options[:hold_at_location][:contact][:company_name])
-                  contact << XmlNode.new('PhoneNumber', @shipping_options[:hold_at_location][:contact][:phone_number])
+                  contact << XmlNode.new('PhoneNumber', location.phone_number.gsub(/\(/, '').gsub(') ', '-'))
                 end
-              end
+              # end
               location << XmlNode.new('Address') do |address|
                 [:address1, :address2, :address3].each do |field|
-                  line = @shipping_options[:hold_at_location][:address][field]
+                  line = location.send(field)
                   address << XmlNode.new('StreetLines', line) if line
                 end
-                address << XmlNode.new('City', @shipping_options[:hold_at_location][:address][:city])
-                address << XmlNode.new('StateOrProvinceCode', @shipping_options[:hold_at_location][:address][:state])
-                address << XmlNode.new('PostalCode', @shipping_options[:hold_at_location][:address][:postal_code])
-                address << XmlNode.new('CountryCode', @shipping_options[:hold_at_location][:address][:country_code])
+                address << XmlNode.new('City', location.city)
+                address << XmlNode.new('StateOrProvinceCode', location.state)
+                address << XmlNode.new('PostalCode', location.postal_code)
+                address << XmlNode.new('CountryCode', location.country_code)
                 address << XmlNode.new('Residential', 'false')
               end
             end

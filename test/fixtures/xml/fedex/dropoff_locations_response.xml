@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+
 <SearchLocationsReply xmlns="http://fedex.com/ws/locs/v1" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <HighestSeverity>SUCCESS</HighestSeverity>
   <Notifications>
