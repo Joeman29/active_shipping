@@ -322,17 +322,17 @@ module ActiveMerchant
       end
 
       def add_hold_at_location(shipment)
-        location = @shipping_options[:hold_at_location]
+        active_location = @shipping_options[:hold_at_location]
         shipment << XmlNode.new('SpecialServicesRequested') do |ss|
           ss << XmlNode.new('SpecialServiceTypes', 'HOLD_AT_LOCATION')
           ss << XmlNode.new('HoldAtLocationDetail') do |hal|
-            hal << XmlNode.new('PhoneNumber', location.phone_number.gsub(/\(/, '').gsub(') ', '-'))
+            hal << XmlNode.new('PhoneNumber', active_location.phone_number.gsub(/\(/, '').gsub(') ', '-'))
             hal << XmlNode.new('LocationContactAndAddress') do |location|
               # if @shipping_options[:hold_at_location][:contact]
                 location << XmlNode.new('Contact') do |contact|
                   # contact << XmlNode.new('PersonName', @shipping_options[:hold_at_location][:contact][:phone_number])
                   # contact << XmlNode.new('CompanyName', @shipping_options[:hold_at_location][:contact][:company_name])
-                  contact << XmlNode.new('PhoneNumber', location.phone_number.gsub(/\(/, '').gsub(') ', '-'))
+                  contact << XmlNode.new('PhoneNumber', active_location.phone_number.gsub(/\(/, '').gsub(') ', '-'))
                 end
               # end
               location << XmlNode.new('Address') do |address|
@@ -340,10 +340,10 @@ module ActiveMerchant
                   line = location.send(field)
                   address << XmlNode.new('StreetLines', line) if line
                 end
-                address << XmlNode.new('City', location.city)
-                address << XmlNode.new('StateOrProvinceCode', location.state)
-                address << XmlNode.new('PostalCode', location.postal_code)
-                address << XmlNode.new('CountryCode', location.country_code)
+                address << XmlNode.new('City', active_location.city)
+                address << XmlNode.new('StateOrProvinceCode', active_location.state)
+                address << XmlNode.new('PostalCode', active_location.postal_code)
+                address << XmlNode.new('CountryCode', active_location.country_code)
                 address << XmlNode.new('Residential', 'false')
               end
             end
