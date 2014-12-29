@@ -337,7 +337,7 @@ module ActiveMerchant
               # end
               location << XmlNode.new('Address') do |address|
                 [:address1, :address2, :address3].each do |field|
-                  line = location.send(field)
+                  line = active_location.send(field)
                   address << XmlNode.new('StreetLines', line) if line
                 end
                 address << XmlNode.new('City', active_location.city)
