@@ -336,10 +336,11 @@ module ActiveMerchant
                 end
               # end
               location << XmlNode.new('Address') do |address|
-                [:address1, :address2, :address3].each do |field|
-                  line = active_location.send(field)
-                  address << XmlNode.new('StreetLines', line) if line
-                end
+                # [:address1, :address2, :address3].each do |field|
+                #   line = active_location.send(field)
+                #   address << XmlNode.new('StreetLines', line) if line
+                # end
+                address << XmlNode.new('StreetLines', active_location.address)
                 address << XmlNode.new('City', active_location.city)
                 address << XmlNode.new('StateOrProvinceCode', active_location.state)
                 address << XmlNode.new('PostalCode', active_location.postal_code)
