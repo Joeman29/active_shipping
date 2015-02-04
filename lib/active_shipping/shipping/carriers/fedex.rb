@@ -533,8 +533,9 @@ module ActiveMerchant
               rs << build_packages_nodes(packages, imperial)
 
             end
+            add_hold_at_location(root_node) if @shipping_options[:hold_at_location]
           end
-          add_hold_at_location(root_node) if @shipping_options[:hold_at_location]
+
         end
         xml_request.to_s
       end
