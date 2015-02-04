@@ -1,13 +1,13 @@
 <RateRequest xmlns='http://fedex.com/ws/rate/v13'>
   <WebAuthenticationDetail>
     <UserCredential>
-      <Key>1111</Key>
-      <Password>2222</Password>
+      <Key>SD2Vx3oouYZ0Tydu</Key>
+      <Password>BsD0AFwX34hknZY6U2jKaFagP</Password>
     </UserCredential>
   </WebAuthenticationDetail>
   <ClientDetail>
-    <AccountNumber>3333</AccountNumber>
-    <MeterNumber>4444</MeterNumber>
+    <AccountNumber>510087160</AccountNumber>
+    <MeterNumber>118654154</MeterNumber>
   </ClientDetail>
   <TransactionDetail>
     <CustomerTransactionId>ActiveShipping</CustomerTransactionId>
@@ -21,7 +21,7 @@
   <ReturnTransitAndCommit>true</ReturnTransitAndCommit>
   <VariableOptions>SATURDAY_DELIVERY</VariableOptions>
   <RequestedShipment>
-    <ShipTimestamp>2015-02-04T03:36:15+02:00</ShipTimestamp>
+    <ShipTimestamp>2015-02-04T03:45:21+02:00</ShipTimestamp>
     <DropoffType>REGULAR_PICKUP</DropoffType>
     <PackagingType>YOUR_PACKAGING</PackagingType>
     <Shipper>

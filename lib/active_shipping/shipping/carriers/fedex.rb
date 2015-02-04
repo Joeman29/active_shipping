@@ -515,6 +515,8 @@ module ActiveMerchant
               rs << build_location_node('Origin', origin)
             end
 
+            add_hold_at_location(rs) if @shipping_options[:hold_at_location]
+
             if freight
               # build xml for freight rate requests
               freight_options = options[:freight]
@@ -533,7 +535,6 @@ module ActiveMerchant
               rs << build_packages_nodes(packages, imperial)
 
             end
-            add_hold_at_location(root_node) if @shipping_options[:hold_at_location]
           end
 
         end
