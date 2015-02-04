@@ -138,6 +138,7 @@ module ActiveMerchant
       end
 
       def find_rates(origin, destination, packages, options = {})
+        @shipping_options = options[:shipping_options] || {}
         options = @options.update(options)
         packages = Array(packages)
 
@@ -533,6 +534,7 @@ module ActiveMerchant
 
             end
           end
+          add_hold_at_location(root_node) if @shipping_options[:hold_at_location]
         end
         xml_request.to_s
       end
