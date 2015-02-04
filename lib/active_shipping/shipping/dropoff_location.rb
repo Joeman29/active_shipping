@@ -3,23 +3,25 @@ module ActiveMerchant #:nodoc:
     class DropoffLocation
       attr_accessor :id, :address, :city, :postal_code, :country_code, :state, :residential, :coordinates, :fedex_attributes, :phone_number, :type, :name, :email
 
-      def initialize(params)
-        @id = params['LocationId']
-        addr = params['LocationContactAndAddress']['Address']
-        @address = addr['StreetLines']
-        @city = addr['City']
-        @postal_code =addr['PostalCode']
-        @country_code =addr['CountryCode']
-        @state = addr['StateOrProvinceCode']
-        @residential = (addr['Residential']=='true')
-        @coordinates = params['GeographicCoordinates']
-        @fedex_attributes = params['Attributes']
-        @type = params['LocationType']
-        contact = params['LocationContactAndAddress']['Contact']
-        if contact
-          @phone_number = contact['PhoneNumber']
-          @name = contact['CompanyName']
-          @email = contact['EMailAddress']
+      def initialize(params=nil, options=nil)
+        if params
+          @id = params['LocationId']
+          addr = params['LocationContactAndAddress']['Address']
+          @address = addr['StreetLines']
+          @city = addr['City']
+          @postal_code =addr['PostalCode']
+          @country_code =addr['CountryCode']
+          @state = addr['StateOrProvinceCode']
+          @residential = (addr['Residential']=='true')
+          @coordinates = params['GeographicCoordinates']
+          @fedex_attributes = params['Attributes']
+          @type = params['LocationType']
+          contact = params['LocationContactAndAddress']['Contact']
+          if contact
+            @phone_number = contact['PhoneNumber']
+            @name = contact['CompanyName']
+            @email = contact['EMailAddress']
+          end
         end
       end
     end
