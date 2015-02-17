@@ -6,9 +6,11 @@
     <v6:Source>crs</v6:Source>
     <v6:Code>872</v6:Code>
     <v6:Message>Rating is temporarily unavailable for one or more services:
-INTERNATIONAL_FIRST; INTERNATIONAL_PRIORITY; INTERNATIONAL_ECONOMY; ; ; ; ; ; ; ; . Please try again later. </v6:Message>
+      INTERNATIONAL_FIRST; INTERNATIONAL_PRIORITY; INTERNATIONAL_ECONOMY; ; ; ; ; ; ; ; . Please try again later.
+    </v6:Message>
     <v6:LocalizedMessage>Rating is temporarily unavailable for one or more services:
-INTERNATIONAL_FIRST; INTERNATIONAL_PRIORITY; INTERNATIONAL_ECONOMY; ; ; ; ; ; ; ; . Please try again later. </v6:LocalizedMessage>
+      INTERNATIONAL_FIRST; INTERNATIONAL_PRIORITY; INTERNATIONAL_ECONOMY; ; ; ; ; ; ; ; . Please try again later.
+    </v6:LocalizedMessage>
     <v6:MessageParameters>
       <v6:Id>SERVICE_TYPE_1</v6:Id>
       <v6:Value>INTERNATIONAL_FIRST</v6:Value>
@@ -27,7 +29,8 @@ INTERNATIONAL_FIRST; INTERNATIONAL_PRIORITY; INTERNATIONAL_ECONOMY; ; ; ; ; ; ; 
     <v6:Source>crs</v6:Source>
     <v6:Code>886</v6:Code>
     <v6:Message>Money Back Guarantee is not eligible for this pick up/delivery postal/zip code</v6:Message>
-    <v6:LocalizedMessage>Money Back Guarantee is not eligible for this pick up/delivery postal/zip code</v6:LocalizedMessage>
+    <v6:LocalizedMessage>Money Back Guarantee is not eligible for this pick up/delivery postal/zip code
+    </v6:LocalizedMessage>
   </v6:Notifications>
   <v6:TransactionDetail>
     <v6:CustomerTransactionId>ActiveShipping</v6:CustomerTransactionId>
@@ -41,7 +44,7 @@ INTERNATIONAL_FIRST; INTERNATIONAL_PRIORITY; INTERNATIONAL_ECONOMY; ; ; ; ; ; ; 
   <v6:RateReplyDetails>
     <v6:ServiceType>FEDEX_GROUND</v6:ServiceType>
     <v6:PackagingType>YOUR_PACKAGING</v6:PackagingType>
-    <v6:DeliveryStation>CCDA </v6:DeliveryStation>
+    <v6:DeliveryStation>CCDA</v6:DeliveryStation>
     <v6:CommitDetails>
       <v6:ServiceType>FEDEX_GROUND</v6:ServiceType>
       <v6:TransitTime>FIVE_DAYS</v6:TransitTime>

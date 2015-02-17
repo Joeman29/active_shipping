@@ -191,6 +191,7 @@ module ActiveMerchant
         raise ActiveMerchant::Shipping::ResponseContentError.new(StandardError.new('Invalid document'), xml) unless root_node
         success = response_success?(xml)
         message = response_message(xml)
+        raise message unless success
         hash = Hash.from_xml(response)
         options.merge!(
             tracking_number: hash['ProcessShipmentReply']['CompletedShipmentDetail']['CompletedPackageDetails']['TrackingIds']['TrackingNumber'],
